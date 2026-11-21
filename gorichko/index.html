@@ -622,8 +622,8 @@ const a=R.slice(0,8).map(card).join(''), b=R.slice(8).map((r,i)=>card(r,i+3)).jo
 $('#t1').innerHTML=a+a; $('#t2').innerHTML=b+b;
 
 /* gallery */
-const G=[['g-climb.jpg','Катерушка на 3 нива'],['g-peppa.jpg','Тематична украса'],['g-kitchen.jpg','Кухня за малки готвачи'],['g-catering-table.jpg','Маса за родители'],['g-slide.jpg','Пързалка и басейн с топки'],['g-shop.jpg','Магазинче'],['g-bites.jpg','Кетъринг'],['g-doctor.jpg','Медицински кабинет'],['g-cars.jpg','Гараж с колички'],['g-tables.jpg','Масички за деца'],['g-canape.jpg','Парти хапки'],['g-workshop.jpg','Работилница']];
-$('#gal').innerHTML=G.map(([f,c])=>`<figure class="rv"><img src="img/${f}" alt="${c}" loading="lazy"><figcaption>${c}</figcaption></figure>`).join('');
+const G=[['img/g-climb.jpg','Катерушка на 3 нива'],['img/g-peppa.jpg','Тематична украса'],['img/g-kitchen.jpg','Кухня за малки готвачи'],['img/g-catering-table.jpg','Маса за родители'],['img/g-slide.jpg','Пързалка и басейн с топки'],['img/g-shop.jpg','Магазинче'],['img/g-bites.jpg','Кетъринг'],['img/g-doctor.jpg','Медицински кабинет'],['img/g-cars.jpg','Гараж с колички'],['img/g-tables.jpg','Масички за деца'],['img/g-canape.jpg','Парти хапки'],['img/g-workshop.jpg','Работилница']];
+$('#gal').innerHTML=G.map(([f,c])=>`<figure class="rv"><img src="${f}" alt="${c}" loading="lazy"><figcaption>${c}</figcaption></figure>`).join('');
 $('#gal').addEventListener('click',e=>{const f=e.target.closest('figure');if(!f)return;$('#lb img').src=f.querySelector('img').src;$('#lb').classList.add('on')});
 $('#lb').onclick=()=>$('#lb').classList.remove('on');
 
