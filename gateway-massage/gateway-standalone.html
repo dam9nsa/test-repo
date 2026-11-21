@@ -52,8 +52,8 @@ section{position:relative}
 @keyframes up{to{transform:none}}
 
 /* nav */
-.nav{position:fixed;top:12px;left:0;right:0;z-index:50;transition:transform .5s var(--ease)}
-.nav.hide{transform:translateY(-130%)}
+.nav{position:fixed;top:12px;left:0;right:0;z-index:50;transition:transform .45s var(--ease),opacity .3s;will-change:transform;-webkit-transform:translateZ(0);transform:translateZ(0)}
+.nav.hide{transform:translate3d(0,calc(-100% - 40px),0);opacity:0;pointer-events:none}
 .nav-in{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:10px 10px 10px 20px;border-radius:100px;background:rgba(246,242,234,.72);backdrop-filter:blur(18px) saturate(1.4);-webkit-backdrop-filter:blur(18px) saturate(1.4);border:1px solid rgba(255,255,255,.6);box-shadow:0 10px 40px -20px rgba(22,48,42,.35)}
 .logo{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-weight:600;font-size:1.35rem;letter-spacing:.14em}
 .logo small{display:block;font-family:var(--sans);font-size:.55rem;letter-spacing:.35em;font-weight:600;color:var(--muted);margin-top:-2px}
@@ -895,11 +895,12 @@ let lastY=0; const nav=$('#nav'), prog=$('#progress'), orb=$('#orb'), mbar=$('#m
 function onScroll(){
   const y=scrollY, h=document.documentElement.scrollHeight-innerHeight;
   prog.style.width=(y/h*100)+'%';
-  nav.classList.toggle('hide', y>lastY && y>300 && !document.body.classList.contains('menu-open'));
+  const dy=y-lastY;
+  if(y<120||document.body.classList.contains('menu-open')){ nav.classList.remove('hide'); lastY=y; }
+  else if(Math.abs(dy)>10){ nav.classList.toggle('hide', dy>0); lastY=y; }
   const fr=$('#form').getBoundingClientRect(), inForm=fr.top<innerHeight&&fr.bottom>0;
   mbar.classList.toggle('show', y>innerHeight*.6 && y<h-300 && !inForm);
   if(orb && y<innerHeight) orb.style.transform=`translateY(${y*.12}px)`;
-  lastY=y;
 }
 addEventListener('scroll',()=>requestAnimationFrame(onScroll),{passive:true});
 
