@@ -215,7 +215,7 @@ section{position:relative}
 .ex .btn{align-self:flex-start}
 
 /* partners */
-.partners{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:40px}
+.partners{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:40px}
 .partner{aspect-ratio:3/2;border-radius:18px;border:1px solid var(--line);display:grid;place-items:center;font-weight:700;font-size:1rem;color:var(--muted);background:var(--white);transition:.4s var(--ease);text-align:center;padding:10px}
 .partner:hover{color:var(--ink);transform:translateY(-4px);box-shadow:0 20px 40px -26px rgba(22,48,42,.4)}
 
@@ -258,6 +258,48 @@ section{position:relative}
 .hours div b{display:block;font-size:.95rem;color:var(--ink);margin-bottom:2px}
 .hours div.today{background:var(--deep);color:var(--sage);border-color:var(--deep)}
 .hours div.today b{color:var(--cream)}
+
+/* photos */
+.orb-wrap img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.08)}
+.orb-wrap::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(22,48,42,0) 45%,rgba(22,48,42,.55))}
+.orb-wrap svg{z-index:1}
+/* team */
+.team{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:56px}
+.member{border-radius:28px;overflow:hidden;background:var(--white);border:1px solid var(--line);display:flex;flex-direction:column}
+.member .ph{aspect-ratio:4/4.2;overflow:hidden;position:relative}
+.member .ph img{width:100%;height:100%;object-fit:cover;object-position:center 25%;transition:transform 1.2s var(--ease)}
+.member:hover .ph img{transform:scale(1.05)}
+.member .ph span{position:absolute;left:16px;top:16px;background:rgba(255,253,249,.92);backdrop-filter:blur(8px);padding:.45em .9em;border-radius:100px;font-size:.72rem;font-weight:700;letter-spacing:.08em}
+.member .bd{padding:28px}
+.member h3{font-size:2rem}
+.member .role{color:var(--green);font-weight:600;font-size:.9rem;margin:4px 0 14px}
+.member p{color:var(--muted);font-size:.95rem}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+.chips i{font-style:normal;font-size:.76rem;font-weight:600;padding:.4em .8em;border-radius:100px;background:var(--mist);color:var(--deep)}
+/* gallery */
+.gallery{display:grid;grid-template-columns:1.3fr 1fr;grid-template-rows:1fr 1fr;gap:14px;height:min(620px,80vw)}
+.gallery figure{border-radius:24px;overflow:hidden;position:relative}
+.gallery figure:first-child{grid-row:span 2}
+.gallery img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--ease)}
+.gallery figure:hover img{transform:scale(1.06)}
+.gallery figcaption{position:absolute;left:14px;bottom:14px;background:rgba(22,48,42,.75);color:var(--cream);backdrop-filter:blur(8px);padding:.5em 1em;border-radius:100px;font-size:.78rem;font-weight:600}
+/* reviews */
+.reviews{background:var(--white);overflow:hidden}
+.rv-head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:46px}
+.gscore{display:flex;align-items:center;gap:16px;padding:16px 22px;border-radius:20px;background:var(--cream);border:1px solid var(--line)}
+.gscore b{font-family:var(--serif);font-size:3rem;font-weight:500;line-height:1}
+.gscore small{display:block;color:var(--muted);font-size:.8rem}
+.rtrack{display:flex;gap:16px;width:max-content;animation:mq 60s linear infinite}
+.rtrack:hover{animation-play-state:paused}
+.rcard{width:340px;flex:none;padding:28px;border-radius:24px;background:var(--cream);border:1px solid var(--line);display:flex;flex-direction:column;gap:16px}
+.rcard q{font-family:var(--serif);font-size:1.45rem;line-height:1.25;quotes:"„" "“"}
+.rcard .who{display:flex;align-items:center;gap:12px;margin-top:auto;font-weight:600;font-size:.92rem}
+.rcard .av{width:40px;height:40px;border-radius:50%;background:var(--deep);color:var(--cream);display:grid;place-items:center;font-family:var(--serif);font-size:1.2rem}
+.rcard .who small{display:block;color:var(--muted);font-weight:500;font-size:.78rem}
+.ex.voucher .vimg{position:absolute;right:-40px;top:24px;width:52%;border-radius:14px;transform:rotate(8deg);box-shadow:0 30px 50px -20px rgba(0,0,0,.45);transition:transform .8s var(--ease)}
+.ex.voucher:hover .vimg{transform:rotate(3deg) translateY(-6px)}
+@media (max-width:980px){.team{grid-template-columns:1fr}.ex.voucher .vimg{position:static;width:100%;max-width:440px;transform:rotate(-2deg);order:-1}.ex.voucher>div{max-width:none!important}}
+@media (max-width:640px){.gallery{grid-template-columns:1fr;grid-template-rows:auto;height:auto}.gallery figure{aspect-ratio:4/3}.gallery figure:first-child{grid-row:auto}.rcard{width:290px}}
 
 /* footer */
 footer{background:var(--ink);color:var(--cream);padding:90px 0 120px;overflow:hidden}
@@ -322,7 +364,8 @@ footer{background:var(--ink);color:var(--cream);padding:90px 0 120px;overflow:hi
     </a>
     <nav class="links">
       <a href="#services" data-i="nav1">Услуги</a>
-      <a href="#therapy" data-i="nav2">Терапия</a>
+      <a href="#team" data-i="nav5">Екип</a>
+      <a href="#reviews" data-i="nav6">Отзиви</a>
       <a href="#extras" data-i="nav3">Ваучери</a>
       <a href="#visit" data-i="nav4">Контакти</a>
     </nav>
@@ -367,30 +410,11 @@ footer{background:var(--ink);color:var(--cream);padding:90px 0 120px;overflow:hi
     </div>
     <div class="hero-art rv d2">
       <div class="orb-wrap" id="orb">
-        <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-          <defs>
-            <radialGradient id="sun" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#f1d9a8"/><stop offset="1" stop-color="#c8a46a" stop-opacity="0"/></radialGradient>
-            <linearGradient id="st1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3b3f3c"/><stop offset="1" stop-color="#1b1e1c"/></linearGradient>
-            <linearGradient id="st2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#55605a"/><stop offset="1" stop-color="#262c29"/></linearGradient>
-          </defs>
-          <circle cx="200" cy="170" r="150" fill="url(#sun)" opacity=".55"/>
-          <g class="steam" fill="none" stroke="#f6f2ea" stroke-width="2" stroke-linecap="round">
-            <path d="M185 205c-10-15 10-25 0-40s10-25 0-40"/>
-            <path d="M205 200c-10-15 10-25 0-40s10-25 0-40"/>
-            <path d="M225 205c-10-15 10-25 0-40s10-25 0-40"/>
-          </g>
-          <g class="stones">
-            <ellipse cx="200" cy="318" rx="92" ry="26" fill="url(#st1)"/>
-            <ellipse cx="200" cy="282" rx="72" ry="22" fill="url(#st2)"/>
-            <ellipse cx="200" cy="250" rx="52" ry="18" fill="url(#st1)"/>
-            <ellipse cx="200" cy="224" rx="32" ry="12" fill="url(#st2)"/>
-            <ellipse cx="186" cy="246" rx="18" ry="4" fill="#fff" opacity=".12"/>
-          </g>
-          <g opacity=".95">
-            <path class="wave w3" d="M-60 360 C 20 330, 80 390, 160 360 S 300 330, 380 360 S 480 390, 520 360 V520 H-60Z" fill="#3f7d6e" opacity=".55"/>
-            <path class="wave w2" d="M-60 390 C 30 365, 100 420, 180 392 S 320 360, 400 392 S 500 420, 520 392 V520 H-60Z" fill="#6f9d8d" opacity=".7"/>
-            <path class="wave" d="M-60 425 C 40 400, 110 450, 200 425 S 340 400, 420 425 S 500 450, 520 425 V520 H-60Z" fill="#9dbe9a"/>
-          </g>
+        <img src="img/studio-therapy.jpg" alt="Терапевтична зала в GATEWAY Massage Studio" fetchpriority="high">
+        <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+          <path class="wave w3" d="M-60 400 C 20 370, 80 430, 160 400 S 300 370, 380 400 S 480 430, 520 400 V520 H-60Z" fill="#3f7d6e" opacity=".55"/>
+          <path class="wave w2" d="M-60 425 C 30 400, 100 455, 180 427 S 320 395, 400 427 S 500 455, 520 427 V520 H-60Z" fill="#6f9d8d" opacity=".7"/>
+          <path class="wave" d="M-60 455 C 40 430, 110 480, 200 455 S 340 430, 420 455 S 500 480, 520 455 V520 H-60Z" fill="#9dbe9a"/>
         </svg>
       </div>
       <div class="badge b1"><b>90 мин</b><span data-i="b1">пълно възстановяване</span></div>
@@ -431,6 +455,45 @@ footer{background:var(--ink);color:var(--cream);padding:90px 0 120px;overflow:hi
         <div class="ic"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 18l5-6 4 3 7-9"/><path d="M15 6h5v5"/></svg></div>
         <h3 data-i="p3h">Резултат</h3><p data-i="p3p">Активна поддържаща програма с упражнения, съобразени с вашето ежедневие.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="pad" id="team" style="padding-top:0">
+  <div class="wrap">
+    <span class="eyebrow rv" data-i="tmE">Екипът</span>
+    <h2 class="split" style="margin-top:20px" data-i="tmH">Ръцете зад <em>резултата</em></h2>
+    <div class="team">
+      <article class="member rv">
+        <div class="ph"><img src="img/team-georgi.jpg" alt="Георги Бояновски" loading="lazy"><span data-i="tg1">20+ години опит</span></div>
+        <div class="bd">
+          <h3 data-i="gName">Георги Бояновски</h3>
+          <div class="role" data-i="gRole">Рехабилитатор · Физиотерапевт · Основател</div>
+          <p data-i="gBio">Започва в МБАЛСМ „Пирогов“ и повече от 10 години работи в Physiopraxis Hermann в Германия. Вярва, че успешната терапия започва с точна диагностика — целта е не само да облекчи болката, а да премахне причината за нея.</p>
+          <div class="chips"><i data-i="c1">Дискови хернии</i><i data-i="c2">Спортни травми</i><i data-i="c3">Кинезиотейпинг</i><i data-i="c4">Black Roll терапевт</i><i data-i="c5">Пред- и следоперативна рехабилитация</i></div>
+        </div>
+      </article>
+      <article class="member rv d1">
+        <div class="ph"><img src="img/team-virdzhiliya.jpg" alt="Вирджилия Краева-Върбин" loading="lazy"><span data-i="tg2">Мадрид · от 2019</span></div>
+        <div class="bd">
+          <h3 data-i="vName">Вирджилия Краева-Върбин</h3>
+          <div class="role" data-i="vRole">Физиотерапевт · Спортна физиотерапия</div>
+          <p data-i="vBio">Бакалавър по физиотерапия и магистър по спортна физиотерапия от Universidad Complutense de Madrid. Работи с мануални техники, кинезиотейпинг и възстановителни методи, съобразени с всеки човек.</p>
+          <div class="chips"><i data-i="c6">Мануални техники</i><i data-i="c3">Кинезиотейпинг</i><i data-i="c7">Спортно възстановяване</i></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="pad" style="padding-top:0">
+  <div class="wrap">
+    <div class="gallery">
+      <figure class="rv"><img src="img/studio-room.jpg" alt="Масажна зала" loading="lazy"><figcaption data-i="g1">Масажна зала</figcaption></figure>
+      <figure class="rv d1"><img src="img/studio-therapy.jpg" alt="Терапевтична апаратура" loading="lazy"><figcaption data-i="g2">Модерна апаратура</figcaption></figure>
+      <figure class="rv d2"><img src="img/studio-reception.jpg" alt="Рецепция и магазин" loading="lazy"><figcaption data-i="g3">Рецепция и магазин</figcaption></figure>
     </div>
   </div>
 </section>
@@ -493,11 +556,23 @@ footer{background:var(--ink);color:var(--cream);padding:90px 0 120px;overflow:hi
 <!-- STATS -->
 <section class="pad" style="padding-bottom:0">
   <div class="wrap stats">
-    <div class="stat rv"><b><span class="count" data-to="12">0</span></b><span data-i="st1">вида процедури</span></div>
+    <div class="stat rv"><b><span class="count" data-to="20">0</span>+</b><span data-i="st1">години опит</span></div>
     <div class="stat rv d1"><b><span class="count" data-to="12">0</span> ч</b><span data-i="st2">работно време всеки ден</span></div>
     <div class="stat rv d2"><b><span class="count" data-to="5" data-dec="1">0</span></b><span data-i="st3">средна оценка в Google</span></div>
     <div class="stat rv d3"><b><span class="count" data-to="90">0</span>′</b><span data-i="st4">най-дългият ритуал</span></div>
   </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews pad" id="reviews">
+  <div class="wrap rv-head">
+    <div>
+      <span class="eyebrow rv" data-i="rvE">Отзиви в Google</span>
+      <h2 class="split" style="margin-top:20px" data-i="rvH">Какво казват <em>клиентите</em></h2>
+    </div>
+    <a class="gscore rv" target="_blank" rel="noopener" href="https://maps.app.goo.gl/5DTyafN484GZMo4y9"><b>5,0</b><div><span class="stars">★★★★★</span><small data-i="rvC">9 отзива · всички 5 звезди</small></div></a>
+  </div>
+  <div class="rtrack" id="rtrack"></div>
 </section>
 
 <!-- EXTRAS -->
@@ -507,7 +582,7 @@ footer{background:var(--ink);color:var(--cream);padding:90px 0 120px;overflow:hi
     <h2 class="split" style="margin:20px 0 46px" data-i="exH">Подарете <em>спокойствие</em></h2>
     <div class="extras">
       <div class="ex voucher rv">
-        <div class="ticket"><small>GIFT VOUCHER</small><b>GATEWAY</b><small>MASSAGE STUDIO</small></div>
+        <img class="vimg" src="img/voucher.jpg" alt="Подаръчен ваучер GATEWAY" loading="lazy">
         <div style="max-width:60%"><h3 data-i="vH">Подаръчни ваучери</h3></div>
         <div>
           <p data-i="vP">Идеалният подарък за рожден ден, годишнина или просто „благодаря“. Изберете процедура или сума.</p>
@@ -533,6 +608,10 @@ footer{background:var(--ink);color:var(--cream);padding:90px 0 120px;overflow:hi
         <div class="partner rv">coralclub</div>
         <div class="partner rv d1">DOC Vegan</div>
         <div class="partner rv d2">McDavid</div>
+        <div class="partner rv">Dr-D Nexus Health</div>
+        <div class="partner rv d1">Misheli Optics</div>
+        <div class="partner rv d2">DXC</div>
+        <div class="partner rv">RE/SHAPE</div>
       </div>
     </div>
   </div>
@@ -641,8 +720,25 @@ const S=[
   dbg:'Масаж с арома олио + загряваща възглавница Fango.',den:'Aroma oil massage + Fango heat pack.',
   opts:[[40,43],[60,60]]},
 ];
+const R=[
+ ['Jivko B.','преди 4 седмици','Уникално добро обслужване, страхотни специалисти, модерна апаратура, която ми облекчи болките. Препоръчвам горещо!','Exceptional service, great specialists and modern equipment that relieved my pain. Highly recommend!'],
+ ['Ventzeslav A.','преди 4 седмици','Препоръчвам! Страхотно отношение!','Recommended! Wonderful attitude!'],
+ ['Silvia S.','преди 3 месеца','Чудесно отношение и професионализъм! Със сигурност ще препоръчам студиото на приятели.','Wonderful attitude and professionalism! I will definitely recommend the studio to friends.'],
+ ['David N.','преди 5 месеца','Страхотно отношение и много чисто и приятна обстановка. Записах вече второ посещение. Доволен съм от резултатите след посещението.','Great attitude, very clean and pleasant place. I have already booked a second visit. Happy with the results.'],
+ ['Stanimir T.','преди 7 месеца','Отлични професионалисти! Добре оборудено студио и страхотни процедури. Препоръчвам!','Excellent professionals! Well-equipped studio and great treatments. Recommended!'],
+ ['Светослав Н.','преди 7 месеца','Много съм доволен! Много ми помогнаха с моя проблем.','Very satisfied! They really helped me with my problem.'],
+ ['Nina M.','преди 8 месеца','Много съм доволна! Препоръчвам!','Very happy! Recommended!'],
+];
+function renderReviews(){
+  const card=r=>`<div class="rcard"><span class="stars">★★★★★</span><q>${lang==='en'?r[3]:r[2]}</q><div class="who"><span class="av">${r[0][0]}</span><span>${r[0]}<small>Google · ${lang==='en'?'translated from Bulgarian':r[1]}</small></span></div></div>`;
+  const h=R.map(card).join(''); $('#rtrack').innerHTML=h+h;
+}
 const T={
- en:{nav1:'Services',nav2:'Therapy',nav3:'Vouchers',nav4:'Contact',cta:'Book now',h1a:'Release',h1b:'the body.',h1c:'Come back.',
+ en:{nav5:'Team',nav6:'Reviews',tmE:'The team',tmH:'The hands behind <em>the results</em>',tg1:'20+ years of experience',tg2:'Madrid · since 2019',
+  gName:'Georgi Boyanovski',gRole:'Rehabilitator · Physiotherapist · Founder',gBio:'Started at Pirogov hospital and has worked for more than 10 years at Physiopraxis Hermann in Germany. He believes successful therapy starts with an accurate diagnosis — the goal is not only to ease the pain but to remove its cause.',
+  vName:'Virdzhiliya Kraeva-Varbin',vRole:'Physiotherapist · Sports physiotherapy',vBio:'BSc in Physiotherapy and MSc in Sports Physiotherapy from Universidad Complutense de Madrid. Works with manual techniques, kinesio taping and recovery methods tailored to each person.',
+  c1:'Disc herniation',c2:'Sports injuries',c3:'Kinesio taping',c4:'Black Roll therapist',c5:'Pre- & post-op rehab',c6:'Manual therapy',c7:'Sports recovery',
+  g1:'Massage room',g2:'Modern equipment',g3:'Reception & shop',rvE:'Google reviews',rvH:'What <em>clients</em> say',rvC:'9 reviews · all 5 stars',st1:'years of experience',nav1:'Services',nav2:'Therapy',nav3:'Vouchers',nav4:'Contact',cta:'Book now',h1a:'Release',h1b:'the body.',h1c:'Come back.',
   heroP:'A massage studio in the heart of Mladost 4. Relaxing, classic and Yumeiho massage, volcanic-mud heat therapy and personal movement programs — every day from 10:00 to 22:00.',
   seePrices:'See prices',gRev:'Google rating',daily:'open every day',from:'treatments',b1:'full recovery',
   abE:'Philosophy',abH:'Not just a massage. A whole-body approach.',abP:'At GATEWAY we combine hands-on techniques, heat therapy and individual movement programs for results that last — not for an hour, but for weeks.',
@@ -753,7 +849,7 @@ function setLang(l){
   $$('[data-i]').forEach(el=>{const v=t(el.dataset.i); if(v!=null) el.innerHTML=v;});
   $('#lang').textContent=l==='bg'?'EN':'BG';
   $('#fName').placeholder=l==='en'?'Your name':'Вашето име';
-  splitAll(); renderServices(); fillSelect(); renderSlots(); status();
+  splitAll(); renderServices(); renderReviews(); fillSelect(); renderSlots(); status();
   $$('.split').forEach(el=>{ if(el.getBoundingClientRect().top<innerHeight) el.classList.add('in') });
 }
 $('#lang').onclick=()=>setLang(lang==='bg'?'en':'bg');
